@@ -22,7 +22,7 @@ connectToServer((err) => {
     }
 })
 
-app.use("/students", clientRoute)
+app.use("/clients", clientRoute)
 
 app.get('/', (req, res) => {
     res.send('running test')
