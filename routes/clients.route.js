@@ -4,7 +4,7 @@ const { verifyJWT } = require("../utils/verifyJWT");
 const router = express.Router();
 
 router.put('/:email', (clientsController.user))
-router.post('/', (clientsController.addClient))
+router.post('/', verifyJWT, (clientsController.addClient))
 router.get("/", verifyJWT, (clientsController.getClient))
 
 
