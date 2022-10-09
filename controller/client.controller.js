@@ -1,5 +1,4 @@
 const { getDb } = require("../utils/dbConnect");
-const verifyJWT = require("../utils/verifyJWT")
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 module.exports.user = async (req, res) => {
@@ -30,3 +29,13 @@ module.exports.addClient = async (req, res) => {
 
     }
 };
+
+module.exports.getClient = async (req, res) => {
+    try {
+        const db = getDb();
+        const client = await db.collection("client").find().toArray();
+        res.send(client);
+    } catch (error) {
+
+    }
+}
